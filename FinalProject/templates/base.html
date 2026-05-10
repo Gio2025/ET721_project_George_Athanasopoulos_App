@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Student Learning App</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="{{url_for('static', filename='style.css')}}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <h2>Student Learning App</h2>
+
+        {% if session.get('user_id') %}
+
+        <div>
+
+            <a href="{{url_for('dashboard')}}">
+                Dashboard
+            </a>
+
+            <a href="{{url_for('tasks')}}">
+                Tasks
+            </a>
+
+            <a href="{{url_for('blogs')}}">
+                Blogs
+            </a>
+
+            <a href="{{url_for('notes')}}">
+                Notes
+            </a>
+
+            <a href="{{url_for('logout')}}">
+                Logout
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </nav>
+
+    <main class="maincontainer">
+
+        {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+                {% for msg in messages %}
+
+                    <p class="flash_msg">
+                        {{msg}}
+                    </p>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+    <script src="{{url_for('static',
+            filename='script.js')}}"></script>
+
+</body>
+</html>

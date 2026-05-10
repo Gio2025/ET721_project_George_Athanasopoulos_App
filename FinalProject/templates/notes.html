@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>My Notes</h1>
+
+{% for note in notes %}
+
+<div class="card">
+
+    <p>
+
+        Subject:
+        {{note['subject']}}
+
+    </p>
+
+    <img src="{{url_for('static',
+             filename='uploads/' + note['image'])}}"
+         width="300">
+
+    <br><br>
+
+    <a href="{{url_for('download_file',
+         filename=note['image'])}}">
+
+         Download
+
+    </a>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}
