@@ -95,3 +95,7 @@ button:hover{
 .signup_div{
     margin-top:1rem;
 }
+
+.signup_btn:hover{
+    color: crimson;
+}
