@@ -2,13 +2,18 @@
 
 {% block content %}
 
-<h1>Student Blogs</h1>
+<div class="page-header">
 
-<a href="{{url_for('create_blog')}}">
-    Create Blog
-</a>
+    <h1 class="title">Student Blogs</h1>
 
-<hr>
+    <a href="{{url_for('create_blog')}}"
+       class="btn">
+
+       Create Blog
+
+    </a>
+
+</div>
 
 {% for blog in blogs %}
 
@@ -19,23 +24,20 @@
     <p>{{blog['content']}}</p>
 
     <p>
-
-        Category:
+        <strong>Category:</strong>
         {{blog['category']}}
-
     </p>
 
     <p>
-
-        Likes:
+        <strong>Likes:</strong>
         {{blog['likes']}}
-
     </p>
 
     <a href="{{url_for('like_blog',
-        id=blog['id'])}}">
+        id=blog['id'])}}"
+       class="btn">
 
-        Like
+        Like Blog
 
     </a>
 
